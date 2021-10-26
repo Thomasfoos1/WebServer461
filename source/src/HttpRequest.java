@@ -20,7 +20,7 @@ final public class HttpRequest implements Runnable {
     private void processRequest() throws Exception {
         //Get a reference to the socket's input and output streams.
         InputStream is= socket.getInputStream();
-        DataOutputStream os= new DataOutputStream(socket.getOutputStream);
+        DataOutputStream os= new DataOutputStream(socket.getOutputStream());
 
         //Set up input stream filters.
         InputStreamReader isr = new InputStreamReader(is);
