@@ -1,8 +1,8 @@
-import java.io.* ;
+package webserver;
+
 import java.net.* ;
 import java.util.* ;
 import webserver.HttpRequest;
-
 
 public final class WebServer {
     public static void main(String argv[]) throws Exception {
@@ -16,11 +16,9 @@ public final class WebServer {
         // Process HTTP service requests in an infinite loop.
         while (true) {
             // Listen for a TCP connection request.
-            ss.accept();
-            
-            
+            Socket s = ss.accept();
             // Construct an object to process the HTTP request message.
-            HttpRequest request = new HttpRequest();
+            HttpRequest request = new HttpRequest(s);
             // Create a new thread to process the request.
             Thread thread = new Thread(request);
             // Start the thread.
